@@ -1,0 +1,82 @@
+@use "var";
+
+.nav {
+  position: fixed;
+  display: flex;
+  //justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 10rem;
+  height: 10rem;
+  font-size: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+  z-index: 999;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.05);
+
+  .navLogo {
+    font-weight: var.$bold;
+    color: white;
+    cursor: pointer;
+  }
+
+  .navMenu {
+    width: 30rem;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 12rem;
+    //text-transform: uppercase;
+  }
+
+  .navLink {
+    transition: 150ms;
+    color: white;
+    font-size: 1.5rem;
+  }
+
+  .navLink:hover {
+    opacity: 0.5;
+  }
+}
+
+.nav::after,
+.nav::before {
+  content: "";
+  position: fixed;
+  width: 10rem;
+  height: 180vh;
+  z-index: 1000;
+}
+
+.nav::before {
+  border-right: 1px solid rgba(255, 255, 255, 0.11);
+  left: 0;
+  top: 0;
+}
+
+.nav::after {
+  border-left: 1px solid rgba(255, 255, 255, 0.11);
+  right: 0;
+  top: 0;
+}
+
+@media (max-width: 576px) {
+  .nav {
+    padding: 0 5rem;
+
+    .navLogo {
+      font-weight: var.$bold;
+      color: white;
+      cursor: pointer;
+    }
+
+    .navMenu {
+      visibility: hidden;
+    }
+  }
+
+  .nav::after,
+  .nav::before {
+    width: 5rem;
+  }
+}
